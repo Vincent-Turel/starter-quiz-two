@@ -1,7 +1,26 @@
 <div class="card">
     <h2>
         <i class="fab fa-leanpub"></i>
-        {{quiz.name}}
+        Nom : {{quiz.name}}
     </h2>
+      <li *ngIf="quiz.name==='Le Football'"
+        class="fas fa-futbol">
+      </li>
+      <li *ngIf="quiz.name==='Les Acteurs'"
+        class="fas fa-video">
+      </li>
+      <i class="fal fa-camera-movi" *ngIf="quiz.name==='Les Acteurs'"></i>
+        Theme: {{quiz.theme}}
+  <br>
+    <span>
+        Nb questions: {{quiz.questions.length}}
+    </span>
+  <br>
+  <span>
+        Date de création: {{quiz.creationDate | date:'longDate'}}
+    </span>
+  <br>
     <button class="button-card" (click)="selectQuiz()">Select</button>
+  <br>
+  <button class="button-card" (click)="supressQuiz()">Supprimer</button>
 </div>
