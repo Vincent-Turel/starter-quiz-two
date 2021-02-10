@@ -1,0 +1,5 @@
+<h2>{{quiz.name}}</h2>
+<h5>Thème : {{quiz.theme}}</h5>
+<app-question-form></app-question-form>
+<app-question-list [questionList]="quiz.questions"></app-question-list>
+<button routerLink="/quiz-list" class="button-card">Retour</button>

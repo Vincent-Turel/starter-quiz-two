@@ -15,14 +15,14 @@ export class QuizListComponent implements OnInit {
     this.quizService.quizzes$.subscribe((quiz) => this.quizList = quiz);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  quizSelected(selected: boolean) {
+  quizSelected(selected: boolean): void {
     console.log('event for selection received from child:', selected);
   }
 
-  deleteQuiz(quiz: Quiz) {
+  deleteQuiz(quiz: Quiz): void {
     console.log('event for suppresion received from child', quiz);
     this.quizService.deleteQuiz(quiz);
   }

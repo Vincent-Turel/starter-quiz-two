@@ -21,20 +21,12 @@
 }
 
 h2 {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
-#theme {
-  margin-bottom: 13px;
+h5 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.ligne {
-  line-height: 18px;
-  font-size: small;
-}
-
-#buttons {
-  margin-top: 13px;
-}
-
-/*# sourceMappingURL=quiz.component.css.map */
+/*# sourceMappingURL=edit-quiz.component.css.map */

@@ -1,0 +1,21 @@
+<div class="card">
+  <h2>Create a new user</h2>
+  <form class="user-form" [formGroup]="userForm">
+    <label for="first-name">
+      First name <br>
+      <input class="input-custom" type="text" id="first-name" [formControlName]="'firstName'">
+    </label>
+    <br>
+    <label for="last-name">
+      Last name <br>
+      <input class="input-custom" type="text" id="last-name" [formControlName]="'lastName'">
+    </label>
+    <br>
+    <label for="email">
+      Email <br>
+      <input class="input-custom" type="email" id="email" [formControlName]="'email'">
+    </label>
+    <br>
+    <button type="submit" class="button-card" [disabled]="userForm.invalid" (click)="addUser()">Create</button>
+  </form>
+</div>

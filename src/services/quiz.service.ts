@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
+import {Question} from '../models/question.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,11 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
 
-  constructor(private hhtp: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   addQuiz(quiz: Quiz): void {
+    quiz.id = this.quizzes[this.quizzes.length - 1].id + 1;
     this.quizzes.push(quiz);
     this.quizzes$.next(this.quizzes);
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
@@ -43,9 +45,21 @@ export class QuizService {
   }
 
   getQuizzes(): void {
-    this.hhtp.get(this.url).subscribe((quiz: Quiz[]) => {
+    this.http.get<Quiz[]>(this.url)
+      .subscribe(
+      (quiz) => {
       this.quizzes = quiz;
       this.quizzes$.next(this.quizzes);
-    });
+      console.log('got data !');
+    },
+        (error) => console.log('Failed to load quizzes : ', error));
+  }
+
+  getQuizzesById(id: number): Quiz | undefined {
+    return this.quizzes.find(quiz => quiz.id === id);
+  }
+
+  addQuestion(id: number, question: Question): void {
+    this.quizzes.find(quiz => quiz.id === id).questions.push(question);
   }
 }

@@ -1,26 +1,24 @@
 <div class="card">
-    <h2>
-        <i class="fab fa-leanpub"></i>
-        Nom : {{quiz.name}}
-    </h2>
-      <li *ngIf="quiz.name==='Le Football'"
-        class="fas fa-futbol">
-      </li>
-      <li *ngIf="quiz.name==='Les Acteurs'"
-        class="fas fa-video">
-      </li>
-      <i class="fal fa-camera-movi" *ngIf="quiz.name==='Les Acteurs'"></i>
-        Theme: {{quiz.theme}}
-  <br>
-    <span>
-        Nb questions: {{quiz.questions.length}}
-    </span>
-  <br>
-  <span>
-        Date de création: {{quiz.creationDate | date:'longDate'}}
-    </span>
-  <br>
-    <button class="button-card" (click)="selectQuiz()">Select</button>
-  <br>
-  <button class="button-card" (click)="supressQuiz()">Supprimer</button>
+  <h2>
+    <i class="fab fa-leanpub"></i>
+    Name : {{quiz.name}}
+  </h2>
+  <div id="theme">
+    <i *ngIf="quiz.name==='Le Football'" class="fas fa-futbol"></i>
+    <i *ngIf="quiz.name==='Les Acteurs'" class="fas fa-video"></i>
+    Theme: {{quiz.theme}}
+  </div>
+  <div class="ligne">
+    Number of questions: {{quiz.questions.length}}
+  </div>
+  <div [style.visibility]="quiz.creationDate ? 'visible' : 'hidden'" class="ligne">
+    Creation date: {{quiz.creationDate | date:'longDate'}}
+  </div>
+  <div id="buttons">
+    <button (click)="selectQuiz()" class="button-card">Select</button>
+    <br>
+    <button (click)="deleteQuiz()" class="button-card">Supprimer</button>
+    <br>
+    <button (click)="editQuiz()" class="button-card">Éditer</button>
+  </div>
 </div>

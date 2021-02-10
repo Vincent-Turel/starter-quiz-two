@@ -6,6 +6,7 @@ export enum Theme {
 }
 
 export interface Quiz {
+    id: number;
     name: string;
     theme?: Theme;
     questions: Question[];

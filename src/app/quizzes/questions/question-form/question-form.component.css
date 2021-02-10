@@ -20,21 +20,13 @@
   cursor: pointer;
 }
 
-h2 {
-  margin-bottom: 10px;
+#answer {
+  margin-top: 15px;
 }
 
-#theme {
-  margin-bottom: 13px;
+#title {
+  display: block;
+  line-height: 16px;
 }
 
-.ligne {
-  line-height: 18px;
-  font-size: small;
-}
-
-#buttons {
-  margin-top: 13px;
-}
-
-/*# sourceMappingURL=quiz.component.css.map */
+/*# sourceMappingURL=question-form.component.css.map */
